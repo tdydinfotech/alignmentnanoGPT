@@ -107,3 +107,9 @@ GPT模型定义，模型所需要参数定义GPTconfig都在model.py文件中
 - **数据**：数据是通过agent与env做交互，采样生成得到的，不同于sft和dpo的监督学习需要额外的数据，ppo的训练所需的数据是需要对齐的模型生成出来的！
   
 - **训练**：在ppo_training.py文件中，定义了CriticModel价值模型和EnvWithRewardModel环境
+
+### TODO
+
+- 对attention的投影参数矩阵进行量化，会出现梯度消失的神奇现象，是为什么呢？怎么解决？
+  
+- moe的专家负载均衡loss还没写完，不使用这个loss会导致专家负载不均衡，比如top2来说，训练时，只使用前两个FFN，其余FFN得不到训练
